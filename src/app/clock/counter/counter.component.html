@@ -1,0 +1,82 @@
+<div class="clock-app">
+    <div class="clock-app-container">
+      <div>
+        <circle-progress
+          [percent]="percent"
+          titleFontSize="90"
+          [radius]="300"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="8"
+          [outerStrokeColor]="'#78C000'"
+          [innerStrokeColor]="'#C7E596'"
+          [animation]="false"
+          [startFromZero]="false"
+          [title]="string"
+          [showUnits]="false"
+          [showSubtitle]="false"
+          [animationDuration]="300"
+          [showZeroOuterStroke]="false"
+          [responsive]="true"
+        ></circle-progress>
+      </div>
+  
+      <div>
+        <div class="inputGroup">
+          <input
+            type="number"
+            [(ngModel)]="hour"
+            [value]="hour"
+            (keyup)="inputTime('hour', $event)"
+          />
+          <input
+            type="number"
+            [(ngModel)]="minute"
+            [value]="minute"
+            (keyup)="inputTime('minute', $event)"
+          />
+  
+          <input
+            type="number"
+            [(ngModel)]="second"
+            [value]="second"
+            (keyup)="inputTime('second', $event)"
+          />
+        </div>
+        <div class="buttonGroup">
+          <div class="button-Container">
+            <button
+              mat-fab
+              color="accent"
+              aria-label="Example icon button with a plus one icon"
+              [disabled]="!counting"
+              (click)="cancelCount()"
+            >
+              Cancel
+            </button>
+          </div>
+          <div *ngIf="!counting" class="button-Container">
+            <button
+              mat-fab
+              color="accent"
+              aria-label="Example icon button with a plus one icon"
+              
+              (click)="startCount()"
+            >
+              Start
+            </button>
+          </div>
+          <div *ngIf="counting" class="button-Container"> 
+            <button
+              mat-fab
+              color="accent"
+              aria-label="Example icon button with a plus one icon"
+              (click)="stopCount()"
+            >
+              Stop
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

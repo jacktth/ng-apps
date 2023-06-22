@@ -1,0 +1,102 @@
+@use "@angular/material" as mat;
+$my-primary: mat.define-palette(mat.$indigo-palette, 500);
+$my-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The "warn" palette is optional and defaults to red if not specified.
+$my-warn: mat.define-palette(mat.$red-palette);
+.stop-watch {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.stop-watch-container {
+    width: 80%;
+    display: flex ;
+    flex-direction: column;
+    @media (max-width: 480px) {
+        width: 480px*0.8;
+    }
+    @media (min-width: 481px) {
+        width: 481px*0.8;
+    }
+    @media (min-width: 768px) {
+        width:768px*0.8;
+    }
+    @media (min-width: 1024px) {
+        width: 1024px*0.8;
+    }
+}
+
+.buttonGroup {
+    display: flex;
+    justify-content: space-between;
+}
+
+.time-on-watch {
+    $base-font-size: 80px;
+    text-align: center;
+    @media (max-width: 480px) {
+        font-size:  $base-font-size ;
+    }
+    @media (min-width: 481px) {
+        font-size:  $base-font-size *1.1 ;
+    }
+    @media (min-width: 768px) {
+        font-size:  $base-font-size*1.4 ;
+    }
+    @media (min-width: 1024px) {
+        font-size:  $base-font-size *2;
+    }
+}
+
+$button-width: 100px;
+$button-height: 100px;
+
+.button-Container {
+    width: $button-width;
+    height: $button-height;
+    @media (max-width: 768px) {
+        width: $button-height / 1.5;
+        height: $button-height / 1.5;
+    }
+}
+
+.start-button {
+    width: 100%;
+    height: 100%;
+    color: rgb(188, 245, 188);
+    background-color: rgba(0, 128, 0, 0.884);
+}
+
+.reset-lap-button {
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: grey;
+}
+
+.stop-button {
+    width: 100%;
+    height: 100%;
+    color: rgb(255, 0, 0);
+    background-color: rgba(214, 94, 94, 0.829);
+}
+
+.lap-green-record {
+    display: flex;
+    justify-content: space-between;
+    color: greenyellow;
+}
+
+.lap-red-record {
+    display: flex;
+    justify-content: space-between;
+    color: red;
+}
+
+.lap-white-record {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}

@@ -1,0 +1,64 @@
+<div class="stop-watch">
+  <div class="stop-watch-container">
+    <div class="time-on-watch">
+      {{ stringInWatch }}
+    </div>
+  
+    <div class="buttonGroup">
+      <div class="button-Container" *ngIf="stopping">
+        <button
+          mat-fab
+          class="reset-lap-button"
+          aria-label="Example icon button with a plus one icon"
+          (click)="resetTimer()"
+        >
+          Reset
+        </button>
+      </div>
+      <div *ngIf="!stopping" class="button-Container">
+        <button
+          mat-fab
+          class="reset-lap-button"
+          aria-label="Example icon button with a plus one icon"
+          (click)="lap()"
+        >
+          Lap
+        </button>
+      </div>
+      <div *ngIf="!counting" class="button-Container">
+        <button
+          mat-fab
+          class="start-button"
+          aria-label="Example icon button with a plus one icon"
+          (click)="startTimer()"
+        >
+          Start
+        </button>
+      </div>
+      <div *ngIf="counting" class="button-Container">
+        <button
+          mat-fab
+          class="stop-button"
+          aria-label="Example icon button with a plus one icon"
+          (click)="stopTimer()"
+        >
+          Stop
+        </button>
+      </div>
+    </div>
+  
+    <ul>
+      <li *ngIf="counting || stopping" class="lap-white-record">
+        <div>{{ round + " round" }}</div>
+        <div>{{ stringInWatch }}</div>
+      </li>
+      <li *ngFor="let lap of lapInfo;">
+        <div [class]="lap.slowest===true ? 'lap-red-record' : lap.fastest === true ?'lap-green-record' :'lap-white-record'">
+          <div>{{ lap.round + " round" }}</div>
+          <div>{{ lap.stringInWatch }}</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
