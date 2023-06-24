@@ -42,6 +42,7 @@ export class CounterComponent {
 
   subscription: Subscription = new Subscription();
   counting = false;
+  onProgress = false
 
   inputTime(timeframe: string, event: Event) {
     const number = Number((event.target as HTMLInputElement).value);
@@ -86,6 +87,9 @@ export class CounterComponent {
       default:
         break;
     }
+    this.string = `${this.hour < 10 ? '0' + this.hour : this.hour}:${
+      this.minute < 10 ? '0' + this.minute : this.minute
+    }:${this.second>9 ?this.second : '0' +this.second}`
   }
   startCount() {
     if (this.totalTime === 0) {
@@ -96,6 +100,7 @@ export class CounterComponent {
     this.orignalMinute = this.minute;
     this.orignalHour = this.hour;
     this.counting = true;
+    this.onProgress = true;
 
     const on$ = timer(0, 1000);
     this.subscription = on$.subscribe(() => {
@@ -130,5 +135,13 @@ export class CounterComponent {
     this.second = this.orignalSecond;
     this.minute = this.orignalMinute;
     this.hour = this.orignalHour;
+    this.totalTime = 0;
+    this.remainingTime = 0
+    this.percent = 100
+    this.onProgress = false;
+    this.string = `${this.hour < 10 ? '0' + this.hour : this.hour}:${
+      this.minute < 10 ? '0' + this.minute : this.minute
+    }:${this.second>9 ?this.second : '0' +this.second}`
+
   }
 }

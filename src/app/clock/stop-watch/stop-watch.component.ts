@@ -20,7 +20,7 @@ type ExtremeRecord = {
   templateUrl: './stop-watch.component.html',
   styleUrls: ['./stop-watch.component.scss'],
 })
-export class StopWatchComponent {
+export class StopWatchComponent  {
   milliSeconds = 0;
   seconds = 0;
   minutes = 0;
@@ -60,15 +60,18 @@ export class StopWatchComponent {
   }
 
   lap() {
+    this.currentLapDifference =
+      this.minutes * 60 +
+      this.seconds +
+      Number('0.' + this.milliSeconds) -
+      this.lastRoundLapValue;
+    console.log('this.currentLapDifference', this.currentLapDifference);
+
     if (this.lapInfo.length > 1) {
-      //this is the operation after the second lap, here will modify the 
-      //fastest and slowest record. UI's record color will be 
+      //this is the operation after the second lap, here will modify the
+      //fastest and slowest record. UI's record color will be
       //changed if modifiy happens.
-      this.currentLapDifference =
-        this.minutes * 60 +
-        this.seconds +
-        Number('0.' + this.milliSeconds) -
-        this.lastRoundLapValue;
+
       if (this.currentLapDifference < this.extremeRecord.fastest) {
         for (let i = 0; i < this.lapInfo.length; i++) {
           if (this.lapInfo[i].fastest === true) {
@@ -82,8 +85,7 @@ export class StopWatchComponent {
           }
         }
         this.extremeRecord.fastest = this.currentLapDifference;
-      }
-      else if (this.currentLapDifference > this.extremeRecord.slowest) {
+      } else if (this.currentLapDifference > this.extremeRecord.slowest) {
         for (let i = 0; i < this.lapInfo.length; i++) {
           if (this.lapInfo[i].slowest === true) {
             this.lapInfo[i].slowest = false;
@@ -95,8 +97,8 @@ export class StopWatchComponent {
             });
           }
         }
-        this.extremeRecord.fastest = this.currentLapDifference;
-      } else{
+        this.extremeRecord.slowest = this.currentLapDifference;
+      } else {
         this.lapInfo.unshift({
           stringInWatch: this.stringInWatch,
           fastest: false,
@@ -117,7 +119,7 @@ export class StopWatchComponent {
           slowest: false,
           round: this.round,
         });
-      }else {
+      } else {
         this.extremeRecord.fastest = this.currentLapDifference;
         this.lapInfo[0].fastest = true;
         this.lapInfo.unshift({
@@ -127,7 +129,7 @@ export class StopWatchComponent {
           round: this.round,
         });
       }
-      this.LastLapDifference = this.currentLapDifference
+      this.LastLapDifference = this.currentLapDifference;
     } else {
       //this is the first lap, no any comparasion here
       this.LastLapDifference =
@@ -146,7 +148,7 @@ export class StopWatchComponent {
       });
     }
 
-    console.log(this.lapInfo,this.extremeRecord);
+
 
     this.lastRoundLapValue =
       this.minutes * 60 + this.seconds + Number('0.' + this.milliSeconds);

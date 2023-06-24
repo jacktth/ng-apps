@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { TimeComponent } from './time/time.component';
+
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     
           }),
         BrowserAnimationsModule,
+        ClockComponent
     ]
 })
 export class AppModule { }
