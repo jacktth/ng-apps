@@ -8,15 +8,22 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CounterComponent } from './counter/counter.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { StopWatchComponent } from './stop-watch/stop-watch.component';
+import { ClockFaceComponent } from './clock-face/clock-face.component';
 const ngMaterial = [MatTabsModule];
 
-const component = [StopWatchComponent, CounterComponent];
+const component = [StopWatchComponent, CounterComponent,ClockFaceComponent];
 @Component({
   selector: 'app-clock',
   standalone: true,
   templateUrl: './clock.component.html',
   styleUrls: ['./clock.component.scss'],
-  imports: [CommonModule, FormsModule, NgCircleProgressModule, ngMaterial,component],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NgCircleProgressModule,
+    ngMaterial,
+    component,
+  ],
 })
 export class ClockComponent {
   //input value

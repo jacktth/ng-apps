@@ -5,7 +5,7 @@ import { ClockComponent } from './clock/clock.component';
   selector: 'app-root',
   styleUrls: ['./app.component.scss'],
   templateUrl: './app.component.html',
-
+  
 })
 export class AppComponent {
 

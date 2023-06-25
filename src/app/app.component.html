@@ -1,26 +1,17 @@
-
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<div *ngIf="isRootRoute()">
-  <!-- Content for home page goes here -->
-  <div style="display: flex; height:100%;">
-    <div style="height: 100%; width: 20%;">
-      fefew
-    </div>
-    <div style="width: 100%;">
+<div class="root" *ngIf="isRootRoute()">
+  
+  <mat-drawer-container  class="drawer" autosize>
+    <mat-drawer #drawer class="sidenav" mode="side" opened>
+      <p>Auto-resizing sidenav</p>
+  
+    </mat-drawer>
+  
+    <div class="app-container">
       <app-clock></app-clock>
     </div>
   
-  
-  </div>
-  
-  
+  </mat-drawer-container>
+<svg></svg>
 </div>
-<router-outlet></router-outlet>
+
 

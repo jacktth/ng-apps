@@ -1,0 +1,10 @@
+<svg width="300" height="300">
+  <circle cx="100" cy="100" r="95" stroke="black" stroke-width="2" fill="white"/>
+  <line [attr.transform]="'rotate(' + hourAngle + ',100,100)'" x1="100" y1="100" x2="100" y2="50" stroke="black" stroke-width="4"/>
+  <line [attr.transform]="'rotate(' + minuteAngle + ',100,100)'" x1="100" y1="100" x2="100" y2="30" stroke="black" stroke-width="2"/>
+  <line [attr.transform]="'rotate(' + secondAngle + ',100,100)'" x1="100" y1="100" x2="100" y2="20" stroke="red" stroke-width="1"/>
+  <text x="95" y="20" font-size="16" font-weight="bold">12</text>
+  <text x="180" y="105" font-size="16" font-weight="bold">3</text>
+  <text x="95" y="190" font-size="16" font-weight="bold">6</text>
+  <text x="10" y="105" font-size="16" font-weight="bold">9</text>
+</svg>
